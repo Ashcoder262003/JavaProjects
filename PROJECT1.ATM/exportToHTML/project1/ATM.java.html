@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>ATM.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #629755; font-style: italic;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #cc7832;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+.s5 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ATM.java</font>
+</center></td></tr></table>
+<pre><span class="s0">/*****************************************************THE AUTOMATED TELLER MACHINE***************************************************************************************/</span>
+<span class="s2">package </span><span class="s1">project1</span><span class="s2">;</span>
+<span class="s2">import </span><span class="s1">java.util.Scanner</span><span class="s2">;</span>
+<span class="s2">public class </span><span class="s1">ATM {</span>
+    <span class="s2">private int </span><span class="s1">Amount = </span><span class="s3">10000</span><span class="s2">;</span>
+    <span class="s2">private int </span><span class="s1">withdraw</span><span class="s2">;</span>
+    <span class="s1">Scanner sc = </span><span class="s2">new </span><span class="s1">Scanner(System.in)</span><span class="s2">;</span>
+
+    <span class="s4">//1st method</span>
+    <span class="s2">public void </span><span class="s1">cashwithdrawl() {</span>
+
+        <span class="s2">if </span><span class="s1">(Amount &gt; </span><span class="s3">0</span><span class="s1">) {</span>
+
+            <span class="s1">System.out.println(</span><span class="s5">&quot;enter the amount cash:&quot;</span><span class="s1">)</span><span class="s2">;</span>
+            <span class="s1">withdraw = sc.nextInt()</span><span class="s2">;</span>
+            <span class="s1">Amount = Amount - withdraw</span><span class="s2">;</span>
+        <span class="s1">} </span><span class="s2">else </span><span class="s1">{</span>
+            <span class="s1">System.out.println(</span><span class="s5">&quot;insufficient balance&quot;</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+
+    <span class="s2">public void </span><span class="s1">deposit() {</span>
+        <span class="s2">int </span><span class="s1">deposit_money</span><span class="s2">;</span>
+        <span class="s1">deposit_money = sc.nextInt()</span><span class="s2">;</span>
+        <span class="s1">Amount = Amount + deposit_money</span><span class="s2">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">public void </span><span class="s1">remaining() {</span>
+        <span class="s1">System.out.println(</span><span class="s5">&quot;the remaining amount is:&quot; </span><span class="s1">+ Amount)</span><span class="s2">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">public void </span><span class="s1">last_transation() {</span>
+        <span class="s1">System.out.println(</span><span class="s5">&quot;the last transation was an amount of:&quot; </span><span class="s1">+ withdraw)</span><span class="s2">;</span>
+    <span class="s1">}</span>
+
+    <span class="s4">//THE MAIN METHOD</span>
+    <span class="s2">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">Scanner sc = </span><span class="s2">new </span><span class="s1">Scanner(System.in)</span><span class="s2">;</span>
+        <span class="s1">ATM obj = </span><span class="s2">new </span><span class="s1">ATM()</span><span class="s2">;</span>
+        <span class="s2">int </span><span class="s1">choice</span><span class="s2">;</span>
+        <span class="s2">while </span><span class="s1">(</span><span class="s2">true</span><span class="s1">) {</span>
+            <span class="s1">System.out.println(</span><span class="s5">&quot;_______________________________________&quot;</span><span class="s1">)</span><span class="s2">;</span>
+            <span class="s1">System.out.println(</span><span class="s5">&quot;******AUTOMATED_TELLER_MACHINE******</span><span class="s2">\n</span><span class="s5">1:Cash_WITHDRAWL</span><span class="s2">\n</span><span class="s5">2:DEPOSIT</span><span class="s2">\n</span><span class="s5">3:BANK_BALANCE</span><span class="s2">\n</span><span class="s5">4:lastTransation</span><span class="s2">\n</span><span class="s5">5:exit&quot;</span><span class="s1">)</span><span class="s2">;</span>
+            <span class="s1">System.out.println(</span><span class="s5">&quot;enter the choice:&quot;</span><span class="s1">)</span><span class="s2">;</span>
+            <span class="s1">choice = sc.nextInt()</span><span class="s2">;</span>
+            <span class="s2">switch </span><span class="s1">(choice) {</span>
+                <span class="s2">case </span><span class="s3">1</span><span class="s1">:</span>
+                    <span class="s1">obj.cashwithdrawl()</span><span class="s2">;</span>
+                    <span class="s2">break;</span>
+                <span class="s2">case </span><span class="s3">2</span><span class="s1">:</span>
+                    <span class="s1">obj.deposit()</span><span class="s2">;</span>
+                    <span class="s2">break;</span>
+                <span class="s2">case </span><span class="s3">3</span><span class="s1">:</span>
+                    <span class="s1">obj.remaining()</span><span class="s2">;</span>
+                    <span class="s2">break;</span>
+                <span class="s2">case </span><span class="s3">4</span><span class="s1">:</span>
+                    <span class="s1">obj.last_transation()</span><span class="s2">;</span>
+                    <span class="s2">break;</span>
+                <span class="s2">case </span><span class="s3">5</span><span class="s1">:</span>
+                    <span class="s1">System.exit(</span><span class="s3">0</span><span class="s1">)</span><span class="s2">;</span>
+            <span class="s1">}</span>
+
+
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+<span class="s4">//end of the project</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
